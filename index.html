@@ -209,6 +209,8 @@
     <div class="service-card"><span class="service-icon">⚙️</span><h3>DevOps Consulting</h3><p>Strategic guidance on DevOps culture, toolchain selection, and process improvement. We meet your team where they are and build a path forward.</p></div>
     <div class="service-card"><span class="service-icon">🔍</span><h3>Infrastructure Audits</h3><p>Deep-dive assessments of your cloud architecture, CI/CD pipelines, security posture, and cost profile. Clear findings, actionable roadmap.</p></div>
     <div class="service-card"><span class="service-icon">💻</span><h3>Code Implementation</h3><p>We don't just advise — we build. IaC with Terraform, pipeline automation, and container orchestration delivered as production-ready code.</p></div>
+    <div class="service-card"><span class="service-icon">🤖</span><h3>Automation Engineering</h3><p>End-to-end workflow automation across your entire toolchain — from infrastructure provisioning to incident response. We eliminate toil so your team ships faster.</p></div>
+    <div class="service-card"><span class="service-icon">🧠</span><h3>AI/ML Infrastructure</h3><p>GPU cluster management, model serving pipelines, vector databases, and MLOps platforms. We build the infrastructure your AI products need to run reliably at scale.</p></div>
     <div class="service-card"><span class="service-icon">🔐</span><h3>Security &amp; Compliance</h3><p>DevSecOps practices, secrets management, IAM hardening, and compliance readiness (SOC 2, ISO 27001, PCI-DSS) built into every layer.</p></div>
     <div class="service-card"><span class="service-icon">📊</span><h3>Observability &amp; FinOps</h3><p>Monitoring, alerting, and logging stacks paired with cloud cost optimization. Know what's breaking and what's burning budget.</p></div>
   </div>
@@ -373,7 +375,7 @@
   function drawNode(n) {
     const x = n.rx * W(), y = n.ry * H();
     const active = activeNodes.has(n.id);
-    const bw = 82, bh = 46, r = 6;
+    const bw = 105, bh = 58, r = 7;
 
     if (active) { ctx.save(); ctx.shadowColor = '#F5A623'; ctx.shadowBlur = 20; }
 
@@ -393,16 +395,16 @@
       ctx.fillRect(x - bw/2, y - bh/2, bw, 1.5);
     }
 
-    ctx.font = '14px serif';
+    ctx.font = '17px serif';
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-    ctx.fillText(n.icon, x, y - 7);
+    ctx.fillText(n.icon, x, y - 9);
 
-    ctx.font = '500 8.5px "JetBrains Mono", monospace';
+    ctx.font = '500 10px "JetBrains Mono", monospace';
     ctx.fillStyle = active ? '#F5A623' : '#7a7772';
-    ctx.fillText(n.label, x, y + 10);
+    ctx.fillText(n.label, x, y + 13);
 
     ctx.beginPath();
-    ctx.arc(x + bw/2 - 8, y - bh/2 + 8, 3, 0, Math.PI * 2);
+    ctx.arc(x + bw/2 - 9, y - bh/2 + 9, 3.5, 0, Math.PI * 2);
     ctx.fillStyle = active ? '#F5A623' : '#3ecf5a';
     ctx.fill();
   }
