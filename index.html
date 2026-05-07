@@ -47,7 +47,9 @@
     .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--text); margin: 5px 0; }
 
     /* HERO */
-    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 5rem 3rem 3rem; gap: 3rem; position: relative; overflow: hidden; }
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 5rem 3rem 3rem 5rem; gap: 3rem; position: relative; overflow: hidden; }
+    .hero-vtag { position: absolute; left: 0; top: 0; bottom: 0; width: 2.5rem; display: flex; align-items: center; justify-content: center; border-right: 0.5px solid rgba(245,166,35,0.12); z-index: 2; }
+    .hero-vtag span { writing-mode: vertical-rl; transform: rotate(180deg); font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; letter-spacing: 0.22em; color: rgba(245,166,35,0.35); text-transform: uppercase; }
     .hero-left { display: flex; flex-direction: column; justify-content: center; }
     .hero-badge { display: inline-flex; align-items: center; gap: 8px; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); border: 0.5px solid rgba(245,166,35,0.35); padding: 0.4rem 1rem; border-radius: 2px; width: fit-content; margin-bottom: 1.75rem; font-family: 'JetBrains Mono', monospace; }
     .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--amber); animation: pulse 2s infinite; }
@@ -208,6 +210,7 @@
 </nav>
 
 <section class="hero" id="home">
+  <div class="hero-vtag"><span>DevOps · Cloud · AI · Automation · Security · Platform</span></div>
   <div class="hero-left">
     <div class="hero-badge">Multi-Cloud MSP &amp; DevOps Consulting</div>
     <h1>Infrastructure<br>built to <em id="typeWord">scale.</em><br>Teams built to <em>ship.</em></h1>
@@ -470,25 +473,31 @@
   const H = () => canvas.offsetHeight;
 
   const nodeDefs = [
-    { id: 'internet', label: 'Internet',      icon: '🌐', rx: 0.5,  ry: 0.05 },
-    { id: 'cdn',      label: 'CDN',           icon: '⚡', rx: 0.15, ry: 0.22 },
-    { id: 'lb',       label: 'Load Balancer', icon: '⚖️', rx: 0.5,  ry: 0.22 },
-    { id: 'waf',      label: 'WAF',           icon: '🛡️', rx: 0.82, ry: 0.22 },
-    { id: 'k8s',      label: 'Kubernetes',    icon: '☸️', rx: 0.5,  ry: 0.48 },
-    { id: 'aws',      label: 'AWS',           icon: '🟠', rx: 0.15, ry: 0.65 },
-    { id: 'azure',    label: 'Azure',         icon: '🔵', rx: 0.5,  ry: 0.65 },
-    { id: 'gcp',      label: 'GCP',           icon: '🔴', rx: 0.82, ry: 0.65 },
-    { id: 'monitor',  label: 'Monitor',       icon: '📊', rx: 0.18, ry: 0.88 },
-    { id: 'db',       label: 'Database',      icon: '🗄️', rx: 0.5,  ry: 0.88 },
-    { id: 'ci',       label: 'CI/CD',         icon: '🔄', rx: 0.82, ry: 0.88 },
+    { id: 'internet', label: 'Internet',      icon: '🌐', rx: 0.5,  ry: 0.04 },
+    { id: 'cdn',      label: 'CDN',           icon: '⚡', rx: 0.15, ry: 0.16 },
+    { id: 'lb',       label: 'Load Balancer', icon: '⚖️', rx: 0.5,  ry: 0.16 },
+    { id: 'waf',      label: 'WAF / Security',icon: '🛡️', rx: 0.85, ry: 0.16 },
+    { id: 'k8s',      label: 'Kubernetes',    icon: '☸️', rx: 0.5,  ry: 0.34 },
+    { id: 'platform', label: 'Platform Eng',  icon: '🏗️', rx: 0.15, ry: 0.34 },
+    { id: 'auto',     label: 'Automation',    icon: '🤖', rx: 0.85, ry: 0.34 },
+    { id: 'aws',      label: 'AWS',           icon: '🟠', rx: 0.15, ry: 0.52 },
+    { id: 'azure',    label: 'Azure',         icon: '🔵', rx: 0.5,  ry: 0.52 },
+    { id: 'gcp',      label: 'GCP',           icon: '🔴', rx: 0.85, ry: 0.52 },
+    { id: 'ai',       label: 'AI / ML',       icon: '🧠', rx: 0.15, ry: 0.70 },
+    { id: 'db',       label: 'Database',      icon: '🗄️', rx: 0.5,  ry: 0.70 },
+    { id: 'ci',       label: 'CI / CD',       icon: '🔄', rx: 0.85, ry: 0.70 },
+    { id: 'monitor',  label: 'Observability', icon: '📊', rx: 0.28, ry: 0.88 },
+    { id: 'finops',   label: 'FinOps',        icon: '💰', rx: 0.72, ry: 0.88 },
   ];
 
   const edges = [
     ['internet','cdn'],['internet','lb'],['internet','waf'],
-    ['cdn','k8s'],['lb','k8s'],['waf','k8s'],
+    ['cdn','platform'],['lb','k8s'],['waf','auto'],
+    ['platform','k8s'],['k8s','auto'],
     ['k8s','aws'],['k8s','azure'],['k8s','gcp'],
-    ['aws','monitor'],['azure','db'],['gcp','ci'],
-    ['monitor','db'],['db','ci'],
+    ['aws','ai'],['azure','db'],['gcp','ci'],
+    ['ai','monitor'],['db','monitor'],['ci','finops'],
+    ['monitor','finops'],['auto','ci'],['platform','aws'],
   ];
 
   const packets = [];
