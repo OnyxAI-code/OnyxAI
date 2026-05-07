@@ -10,6 +10,7 @@
   <meta property="og:url" content="https://onyxaisolutions.com" />
   <meta property="og:type" content="website" />
   <link rel="canonical" href="https://onyxaisolutions.com" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 88 88'%3E%3Cpolygon points='44,4 80,24 80,64 44,84 8,64 8,24' fill='%232a2a2a'/%3E%3Cpolygon points='44,22 62,32 62,52 44,62 26,52 26,32' fill='%23BA7517'/%3E%3Cpolygon points='44,22 62,32 44,42 26,32' fill='%23F5A623'/%3E%3Cpolygon points='44,42 62,32 62,52 44,62' fill='%23854F0B'/%3E%3Cpolygon points='44,42 26,32 26,52 44,62' fill='%23F5A623' opacity='.65'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cabinet+Grotesk:wght@300;400;500;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -451,9 +452,34 @@
   function submitForm() {
     const name = document.getElementById('fname').value.trim();
     const email = document.getElementById('femail').value.trim();
+    const company = document.getElementById('fcompany').value.trim();
+    const service = document.getElementById('fservice').value;
+    const message = document.getElementById('fmessage').value.trim();
     if (!name || !email) { alert('Please fill in your name and email.'); return; }
-    document.getElementById('contactForm').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
+    const btn = document.querySelector('.form-submit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    fetch('https://formspree.io/f/mrejaagv', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ name, email, company, service, message })
+    })
+    .then(r => r.json())
+    .then(data => {
+      if (data.ok) {
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } else {
+        btn.textContent = 'Book a Discovery Call →';
+        btn.disabled = false;
+        alert('Something went wrong. Please email us directly at hello@onyxaisolutions.com');
+      }
+    })
+    .catch(() => {
+      btn.textContent = 'Book a Discovery Call →';
+      btn.disabled = false;
+      alert('Something went wrong. Please email us directly at hello@onyxaisolutions.com');
+    });
   }
 
   // ── Infrastructure Canvas Animation ──
