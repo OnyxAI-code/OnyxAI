@@ -47,7 +47,7 @@
     .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--text); margin: 5px 0; }
 
     /* HERO */
-    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 5rem 3rem 3rem 5rem; gap: 3rem; position: relative; overflow: hidden; }
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: flex-start; padding: 7rem 3rem 3rem 5rem; gap: 3rem; position: relative; overflow: hidden; }
     .hero-vtag { position: absolute; left: 0; top: 0; bottom: 0; width: 2.5rem; display: flex; align-items: center; justify-content: center; border-right: 0.5px solid rgba(245,166,35,0.12); z-index: 2; }
     .hero-vtag span { writing-mode: vertical-rl; transform: rotate(180deg); font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; letter-spacing: 0.22em; color: rgba(245,166,35,0.35); text-transform: uppercase; }
     .hero-left { display: flex; flex-direction: column; justify-content: center; }
@@ -64,7 +64,7 @@
     .btn-ghost:hover { border-color: var(--amber); color: var(--amber); }
 
     /* CANVAS */
-    .hero-right { position: relative; height: 500px; }
+    .hero-right { position: relative; height: 620px; }
     #infraCanvas { width: 100%; height: 100%; }
 
     /* TICKER */
@@ -473,21 +473,21 @@
   const H = () => canvas.offsetHeight;
 
   const nodeDefs = [
-    { id: 'internet', label: 'Internet',      icon: '🌐', rx: 0.5,  ry: 0.04 },
-    { id: 'cdn',      label: 'CDN',           icon: '⚡', rx: 0.15, ry: 0.16 },
-    { id: 'lb',       label: 'Load Balancer', icon: '⚖️', rx: 0.5,  ry: 0.16 },
-    { id: 'waf',      label: 'WAF / Security',icon: '🛡️', rx: 0.85, ry: 0.16 },
-    { id: 'k8s',      label: 'Kubernetes',    icon: '☸️', rx: 0.5,  ry: 0.34 },
-    { id: 'platform', label: 'Platform Eng',  icon: '🏗️', rx: 0.15, ry: 0.34 },
-    { id: 'auto',     label: 'Automation',    icon: '🤖', rx: 0.85, ry: 0.34 },
-    { id: 'aws',      label: 'AWS',           icon: '🟠', rx: 0.15, ry: 0.52 },
-    { id: 'azure',    label: 'Azure',         icon: '🔵', rx: 0.5,  ry: 0.52 },
-    { id: 'gcp',      label: 'GCP',           icon: '🔴', rx: 0.85, ry: 0.52 },
-    { id: 'ai',       label: 'AI / ML',       icon: '🧠', rx: 0.15, ry: 0.70 },
-    { id: 'db',       label: 'Database',      icon: '🗄️', rx: 0.5,  ry: 0.70 },
-    { id: 'ci',       label: 'CI / CD',       icon: '🔄', rx: 0.85, ry: 0.70 },
-    { id: 'monitor',  label: 'Observability', icon: '📊', rx: 0.28, ry: 0.88 },
-    { id: 'finops',   label: 'FinOps',        icon: '💰', rx: 0.72, ry: 0.88 },
+    { id: 'internet', label: 'Internet',      icon: '🌐', rx: 0.5,  ry: 0.07 },
+    { id: 'cdn',      label: 'CDN',           icon: '⚡', rx: 0.15, ry: 0.20 },
+    { id: 'lb',       label: 'Load Balancer', icon: '⚖️', rx: 0.5,  ry: 0.20 },
+    { id: 'waf',      label: 'WAF / Security',icon: '🛡️', rx: 0.85, ry: 0.20 },
+    { id: 'k8s',      label: 'Kubernetes',    icon: '☸️', rx: 0.5,  ry: 0.37 },
+    { id: 'platform', label: 'Platform Eng',  icon: '🏗️', rx: 0.15, ry: 0.37 },
+    { id: 'auto',     label: 'Automation',    icon: '🤖', rx: 0.85, ry: 0.37 },
+    { id: 'aws',      label: 'AWS',           icon: '🟠', rx: 0.15, ry: 0.55 },
+    { id: 'azure',    label: 'Azure',         icon: '🔵', rx: 0.5,  ry: 0.55 },
+    { id: 'gcp',      label: 'GCP',           icon: '🔴', rx: 0.85, ry: 0.55 },
+    { id: 'ai',       label: 'AI / ML',       icon: '🧠', rx: 0.15, ry: 0.73 },
+    { id: 'db',       label: 'Database',      icon: '🗄️', rx: 0.5,  ry: 0.73 },
+    { id: 'ci',       label: 'CI / CD',       icon: '🔄', rx: 0.85, ry: 0.73 },
+    { id: 'monitor',  label: 'Observability', icon: '📊', rx: 0.28, ry: 0.92 },
+    { id: 'finops',   label: 'FinOps',        icon: '💰', rx: 0.72, ry: 0.92 },
   ];
 
   const edges = [
