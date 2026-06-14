@@ -635,7 +635,7 @@
     btn.textContent = 'Sending...';
     btn.disabled = true;
 
-    // 1. Send notification to OnyxAI via Web3Forms
+    // 1. Notify OnyxAI team via Web3Forms
     fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
@@ -648,37 +648,20 @@
       })
     }).catch(() => {});
 
-    // 2. Send branded autoresponder via Brevo
-    fetch('https://api.brevo.com/v3/smtp/email', {
+    // 2. Send branded autoresponder via Cloudflare Worker → Brevo
+    fetch('https://little-cake-52e2.elenal.workers.dev', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'api-key': 'REMOVED'
-      },
-      body: JSON.stringify({
-        templateId: 1,
-        to: [{ email: email, name: name }],
-        replyTo: { email: 'contact@onyxaisolutions.com', name: 'OnyxAI Solutions' },
-        params: { name: name }
-      })
-    })
-    .then(r => {
-      if (r.ok || r.status === 201) {
-        document.getElementById('contactForm').style.display = 'none';
-        document.getElementById('formSuccess').style.display = 'block';
-      } else {
-        document.getElementById('contactForm').style.display = 'none';
-        document.getElementById('formSuccess').style.display = 'block';
-      }
-      btn.textContent = 'Book a Discovery Call →';
-      btn.disabled = false;
-    })
-    .catch(() => {
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email })
+    }).catch(() => {});
+
+    // Show success regardless
+    setTimeout(() => {
       document.getElementById('contactForm').style.display = 'none';
       document.getElementById('formSuccess').style.display = 'block';
       btn.textContent = 'Book a Discovery Call →';
       btn.disabled = false;
-    });
+    }, 1000);
   }
 
   // ── Infrastructure Canvas Animation ──
