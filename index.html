@@ -652,7 +652,7 @@
     fetch('https://little-cake-52e2.elenal.workers.dev', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email })
+      body: JSON.stringify({ name, email, company, service, message })
     }).catch(() => {});
 
     // Show success regardless
