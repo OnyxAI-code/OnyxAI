@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Page Not Found | OnyxAI Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cabinet+Grotesk:wght@400;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 88 88'%3E%3Cpolygon points='44,4 80,24 80,64 44,84 8,64 8,24' fill='%232a2a2a'/%3E%3Cpolygon points='44,22 62,32 62,52 44,62 26,52 26,32' fill='%23BA7517'/%3E%3Cpolygon points='44,22 62,32 44,42 26,32' fill='%23F5A623'/%3E%3Cpolygon points='44,42 62,32 62,52 44,62' fill='%23854F0B'/%3E%3Cpolygon points='44,42 26,32 26,52 44,62' fill='%23F5A623' opacity='.65'/%3E%3C/svg%3E" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --amber: #F5A623; --black: #080808; --text: #EDEAE2; --muted: #7a7772; --border: rgba(245,166,35,0.12); }
+    body { font-family: 'Cabinet Grotesk', sans-serif; background: var(--black); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; -webkit-font-smoothing: antialiased; }
+    .error-code { font-family: 'Bebas Neue', sans-serif; font-size: clamp(8rem, 20vw, 14rem); line-height: 1; color: rgba(245,166,35,0.12); letter-spacing: 0.02em; margin-bottom: -1rem; }
+    .error-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: 0.02em; margin-bottom: 1rem; }
+    .error-sub { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--muted); margin-bottom: 0.5rem; letter-spacing: 0.05em; }
+    .error-desc { font-size: 1rem; color: var(--muted); max-width: 420px; line-height: 1.7; margin-bottom: 2.5rem; }
+    .btn { font-family: 'Cabinet Grotesk', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--black); background: var(--amber); border: none; padding: 0.9rem 2rem; border-radius: 3px; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s; }
+    .btn:hover { background: #FAC775; }
+    .logo { display: flex; align-items: center; gap: 10px; margin-bottom: 3rem; text-decoration: none; }
+    .logo-name { font-size: 1.2rem; font-weight: 800; color: var(--text); }
+    .logo-name span { color: var(--amber); }
+    .logo-rule { height: 1.5px; background: var(--amber); margin: 3px 0 2px; }
+    .logo-sub { font-size: 0.55rem; letter-spacing: 0.2em; color: var(--amber); text-transform: uppercase; }
+    .terminal { background: #111; border: 0.5px solid var(--border); border-radius: 6px; padding: 1.25rem 1.5rem; margin-bottom: 2rem; text-align: left; max-width: 420px; width: 100%; }
+    .t { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--muted); line-height: 1.9; }
+    .p { color: var(--amber); }
+    .e { color: #ff6b6b; }
+  </style>
+</head>
+<body>
+  <a href="/" class="logo">
+    <svg width="40" height="40" viewBox="0 0 88 88" fill="none">
+      <polygon points="44,4 80,24 80,64 44,84 8,64 8,24" fill="#2a2a2a" stroke="#3a3a3a" stroke-width="1.5"/>
+      <polygon points="44,8 76,26 76,62 44,80 12,62 12,26" fill="#1e1e1e"/>
+      <polygon points="44,22 62,32 62,52 44,62 26,52 26,32" fill="#BA7517"/>
+      <polygon points="44,22 62,32 44,42 26,32" fill="#F5A623"/>
+      <polygon points="44,42 62,32 62,52 44,62" fill="#854F0B"/>
+      <polygon points="44,42 26,32 26,52 44,62" fill="#F5A623" opacity="0.65"/>
+    </svg>
+    <div>
+      <div class="logo-name">Onyx<span>AI</span></div>
+      <div class="logo-rule"></div>
+      <div class="logo-sub">Solutions</div>
+    </div>
+  </a>
+
+  <div class="error-code">404</div>
+  <h1 class="error-title">Page Not Found</h1>
+
+  <div class="terminal">
+    <div class="t"><span class="p">$ </span>curl https://onyxaisolutions.com<span id="path"></span></div>
+    <div class="t"><span class="e">Error 404: Resource not found</span></div>
+    <div class="t"><span class="p">$ </span>cd / && ls</div>
+    <div class="t" style="color:#5DCAA5;">→ Try going back to the homepage</div>
+  </div>
+
+  <p class="error-desc">The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
+  <a href="/" class="btn">Back to Homepage</a>
+
+  <script>
+    document.getElementById('path').textContent = window.location.pathname;
+  </script>
+</body>
+</html>

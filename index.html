@@ -143,6 +143,34 @@
     #particleBg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
     .hero, nav, .ticker, .section, .stats-section, .cta-section, footer { position: relative; z-index: 1; }
 
+    /* TECH STACK */
+    .tech-section { padding: 3rem 3rem; border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); background: var(--dark); position: relative; z-index: 1; }
+    .tech-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.75rem; text-align: center; }
+    .tech-grid { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1.5rem 2.5rem; }
+    .tech-item { display: flex; flex-direction: column; align-items: center; gap: 6px; opacity: 0.5; transition: opacity 0.2s; }
+    .tech-item:hover { opacity: 1; }
+    .tech-icon { font-size: 2rem; }
+    .tech-name { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; color: var(--muted); text-transform: uppercase; }
+
+    /* FAQ */
+    .faq-section { padding: 6rem 3rem; position: relative; z-index: 1; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; border: 0.5px solid var(--border); margin-top: 3rem; }
+    .faq-item { background: var(--dark); padding: 2rem; border: 0.5px solid var(--border); cursor: pointer; transition: background 0.2s; }
+    .faq-item:hover { background: var(--dark2); }
+    .faq-q { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.75rem; display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+    .faq-q span { color: var(--amber); font-size: 1rem; flex-shrink: 0; }
+    .faq-a { font-size: 0.875rem; color: var(--muted); line-height: 1.7; }
+
+    /* COOKIE BANNER */
+    #cookieBanner { position: fixed; bottom: 0; left: 0; right: 0; background: var(--dark2); border-top: 0.5px solid var(--border); padding: 1rem 3rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; z-index: 500; flex-wrap: wrap; }
+    #cookieBanner p { font-size: 0.8rem; color: var(--muted); max-width: 700px; line-height: 1.6; }
+    #cookieBanner a { color: var(--amber); text-decoration: underline; }
+    .cookie-btns { display: flex; gap: 0.75rem; flex-shrink: 0; }
+    .cookie-accept { background: var(--amber); color: var(--black); font-family: 'Cabinet Grotesk', sans-serif; font-size: 0.8rem; font-weight: 700; padding: 0.5rem 1.25rem; border: none; border-radius: 3px; cursor: pointer; }
+    .cookie-decline { background: transparent; color: var(--muted); font-family: 'Cabinet Grotesk', sans-serif; font-size: 0.8rem; padding: 0.5rem 1.25rem; border: 0.5px solid var(--border); border-radius: 3px; cursor: pointer; }
+
+    @media (max-width: 900px) { .faq-grid { grid-template-columns: 1fr; } .faq-section { padding: 4rem 1.5rem; } .tech-section { padding: 2.5rem 1.5rem; } #cookieBanner { padding: 1rem 1.5rem; } }
+
     /* CONTACT FORM */
     .contact-section { padding: 6rem 3rem; position: relative; z-index: 1; border-top: 0.5px solid var(--border); }
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
@@ -207,6 +235,7 @@
     <li><a href="#process">Process</a></li>
     <li><a href="#about">Why Us</a></li>
     <li><a href="#story">Our Story</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#contact" class="nav-cta" id="navCta">Let's Talk</a>
@@ -235,6 +264,27 @@
   <div class="ticker-inner">
     <span class="ticker-item">AWS</span><span class="ticker-item">Azure</span><span class="ticker-item">Google Cloud</span><span class="ticker-item">Kubernetes</span><span class="ticker-item">Terraform</span><span class="ticker-item">CI/CD Pipelines</span><span class="ticker-item">Docker</span><span class="ticker-item">Helm</span><span class="ticker-item">GitOps</span><span class="ticker-item">Security Audits</span><span class="ticker-item">Observability</span><span class="ticker-item">FinOps</span><span class="ticker-item">ArgoCD</span><span class="ticker-item">Ansible</span>
     <span class="ticker-item">AWS</span><span class="ticker-item">Azure</span><span class="ticker-item">Google Cloud</span><span class="ticker-item">Kubernetes</span><span class="ticker-item">Terraform</span><span class="ticker-item">CI/CD Pipelines</span><span class="ticker-item">Docker</span><span class="ticker-item">Helm</span><span class="ticker-item">GitOps</span><span class="ticker-item">Security Audits</span><span class="ticker-item">Observability</span><span class="ticker-item">FinOps</span><span class="ticker-item">ArgoCD</span><span class="ticker-item">Ansible</span>
+  </div>
+</div>
+
+<!-- TECH STACK -->
+<div class="tech-section">
+  <div class="tech-label">Technologies we work with</div>
+  <div class="tech-grid">
+    <div class="tech-item"><div class="tech-icon">🟠</div><div class="tech-name">AWS</div></div>
+    <div class="tech-item"><div class="tech-icon">🔵</div><div class="tech-name">Azure</div></div>
+    <div class="tech-item"><div class="tech-icon">🔴</div><div class="tech-name">GCP</div></div>
+    <div class="tech-item"><div class="tech-icon">☸️</div><div class="tech-name">Kubernetes</div></div>
+    <div class="tech-item"><div class="tech-icon">🟣</div><div class="tech-name">Terraform</div></div>
+    <div class="tech-item"><div class="tech-icon">🐳</div><div class="tech-name">Docker</div></div>
+    <div class="tech-item"><div class="tech-icon">🔄</div><div class="tech-name">ArgoCD</div></div>
+    <div class="tech-item"><div class="tech-icon">⚙️</div><div class="tech-name">Ansible</div></div>
+    <div class="tech-item"><div class="tech-icon">🪖</div><div class="tech-name">Helm</div></div>
+    <div class="tech-item"><div class="tech-icon">🔁</div><div class="tech-name">GitHub Actions</div></div>
+    <div class="tech-item"><div class="tech-icon">📊</div><div class="tech-name">Prometheus</div></div>
+    <div class="tech-item"><div class="tech-icon">📈</div><div class="tech-name">Grafana</div></div>
+    <div class="tech-item"><div class="tech-icon">🔍</div><div class="tech-name">Datadog</div></div>
+    <div class="tech-item"><div class="tech-icon">🧠</div><div class="tech-name">MLflow</div></div>
   </div>
 </div>
 
@@ -336,6 +386,46 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <p class="section-label">FAQ</p>
+  <h2 class="section-title">Questions we get asked a lot.</h2>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <div class="faq-q">Do you work with early-stage startups? <span>+</span></div>
+      <div class="faq-a">Yes — startups are our sweet spot. We work with teams at all stages, from pre-Series A through Series C and beyond. We're used to moving fast with limited resources and building infrastructure that scales as you grow.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do we need to have a DevOps team already? <span>+</span></div>
+      <div class="faq-a">Not at all. Many of our clients come to us precisely because they don't have dedicated DevOps expertise in-house. We can act as your entire DevOps function or work alongside your existing team.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How long does an infrastructure audit take? <span>+</span></div>
+      <div class="faq-a">Typically 1-2 weeks depending on the complexity of your environment. You receive a written report with prioritized findings, cost savings opportunities, and a clear implementation roadmap.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What cloud platforms do you support? <span>+</span></div>
+      <div class="faq-a">We work across AWS, Azure, and Google Cloud — as well as hybrid and multi-cloud environments. We have no vendor bias and will always recommend the best tool for your specific workload and budget.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do you offer ongoing support after implementation? <span>+</span></div>
+      <div class="faq-a">Absolutely. Our MSP retainers provide ongoing 24/7 support after project completion. Many clients start with a fixed-scope project and move to a monthly retainer once they see the results.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How is OnyxAI different from a large consulting firm? <span>+</span></div>
+      <div class="faq-a">When you hire OnyxAI, you work directly with senior engineers — not account managers or junior resources. No hand-offs, no bloated teams. Just experienced practitioners who write the code and own the outcome.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is your minimum engagement size? <span>+</span></div>
+      <div class="faq-a">Our minimum project engagement starts at $5,000. This ensures we can deliver meaningful, high-quality work rather than surface-level recommendations. MSP retainers start at $4,000 per month.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do we get started? <span>+</span></div>
+      <div class="faq-a">Book a free 30-minute discovery call. We'll learn about your stack, goals, and challenges — no sales pressure, just an honest conversation. From there we'll propose the right engagement for your situation.</div>
+    </div>
+  </div>
+</section>
+
 <section class="contact-section" id="contact">
   <div class="contact-grid">
     <div class="contact-intro">
@@ -413,13 +503,29 @@
     <li><a href="#services">Services</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="mailto:contact@onyxaisolutions.com">Contact</a></li>
     <li><a href="https://www.linkedin.com/company/onyxaisolutions" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+    <li><a href="/privacy.html">Privacy Policy</a></li>
   </ul>
-  <p>© 2026 OnyxAI Solutions. All rights reserved.</p>
+  <p>© 2026 OnyxAI Solutions LLC. All rights reserved.</p>
 </footer>
 
+<!-- COOKIE BANNER -->
+<div id="cookieBanner">
+  <p>We use cookies to analyze site traffic and improve your experience. See our <a href="/privacy.html">Privacy Policy</a> for details.</p>
+  <div class="cookie-btns">
+    <button class="cookie-decline" onclick="dismissCookie()">Decline</button>
+    <button class="cookie-accept" onclick="acceptCookie()">Accept</button>
+  </div>
+</div>
+
 <script>
+  // Cookie banner
+  function acceptCookie() { localStorage.setItem('cookieConsent','accepted'); document.getElementById('cookieBanner').style.display='none'; }
+  function dismissCookie() { localStorage.setItem('cookieConsent','declined'); document.getElementById('cookieBanner').style.display='none'; }
+  if(localStorage.getItem('cookieConsent')) document.getElementById('cookieBanner').style.display='none';
+
   // Mobile nav
   const toggle = document.getElementById('navToggle');
   const navbar = document.getElementById('navbar');
